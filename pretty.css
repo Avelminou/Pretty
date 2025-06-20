@@ -8,9 +8,9 @@ body {
 
 .haut {
     height: 80px;
-    width: 100%;
+    max-width: 500px;
     background-image: url('holi.png');
-    background-size: 100% 80px;
+    background-size: 410px 80px;
     border-bottom: solid 1px white;
     z-index: 1;
 }
