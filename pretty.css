@@ -10,7 +10,7 @@ body {
     height: 80px;
     width: 100%;
     background-image: url('holi.png');
-    background-size: 500px 80px;
+    background-size: 100% 80px;
     border-bottom: solid 1px white;
     z-index: 1;
 }
