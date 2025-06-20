@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pretty</title>
+  <link rel="stylesheet" href="./pretty.css">
+
+</head>
+
+<body>
+  <div class="protege">
+    <div class="haut"></div>
+
+    <div class="centre">
+      <div class="photos">
+        <img class="pdp" src="avel.jpg" alt="Photos de profil">
+        <form action="video.html">
+          <button class="main"></button>
+        </form>
+        <span class="nom"><a class="a2" href="video.html">Avel Mimilitia</a></span>
+        <k> réel. </k>
+        <m id="counter">0</m>
+        <j>minutes</j>
+      </div>
+
+      <div class="reel">
+        <div class="video"></div>
+        <button class="play"><a class="a3" href="video.html">OO</a></button>
+      </div>
+      <div class="numberlike">
+        <m id="like-reel_1.mp4">0</m>
+        <j>❤️ Likes</j>
+      </div>
+      <div class="vupub">
+        <button class="like1" onclick="addLike('reel_1.mp4')">❤️</button>
+
+
+        <input class="input_coms" type="text" id='input-reel_1.mp4' placeholder="Ajouter un commentaire...">
+        <button class="coms" onclick="addComment('reel_1.mp4')">coms</button>
+      </div>
+      <p style="color: white; text-decoration: underline;">Les commentaires:</p>
+      🔔<ul id="comments-reel_1.mp4" style="color: white;"> </ul>
+    </div>
+
+    <!-- pub1 - pretty.jpg -->
+    <div class="centre">
+      <div class="photos">
+        <img class="pdp" src="pdp.jpg" alt="Photos de profil">
+        <form action="primg1.html">
+          <button class="main"></button>
+        </form>
+        <span class="nom"><a class="a2" href="primg1.html">Holiness Wish you</a></span>
+        <k> photos. </k>
+      </div>
+
+      <div class="pub">
+        <img class="imp" src="pretty.jpg" alt="Photos de publication">
+      </div>
+      <div class="numberlike">
+        <m id="like-pretty.jpg">0</m>
+        <j>❤️ Likes</j>
+      </div>
+      <div class="vupub">
+        <button class="like1" onclick="addLike('pretty.jpg')">❤️</button>
+
+
+        <input class="input_coms" type="text" id="input-pretty.jpg" placeholder="Ajouter un commentaire...">
+        <button class="coms" onclick="addComment('pretty.jpg')">coms</button>
+      </div>
+      <p style="color: white; text-decoration: underline;">Les commentaires:</p>
+      🔔<ul id="comments-pretty.jpg" style="color: white;"> </ul>
+    </div>
+
+    <!-- pub2 - Yves.jpg -->
+    <div class="centre">
+      <div class="photos">
+        <img class="pdp" src="yves.jpg" alt="Photos de profil">
+        <form action="primg2.html">
+          <button class="main"></button>
+        </form>
+        <span class="nom"><a class="a2" href="primg2.html">Yves Savio Remananarivo Felton</a></span>
+        <k> photos. </k>
+      </div>
+
+      <div class="pub">
+        <img class="imp" src="Holiness.jpg" alt="Photos de publication">
+      </div>
+      <div class="numberlike">
+        <m id="like-Holiness.jpg">0</m>
+        <j>❤️ Likes</j>
+      </div>
+      <div class="vupub">
+        <button class="like1" onclick="addLike('Holiness.jpg')">❤️</button>
+
+        <input class="input_coms" type="text" id="input-Holiness.jpg" placeholder="Ajouter un commentaire...">
+        <button class="coms" onclick="addComment('Holiness.jpg')">coms</button><br>
+      </div>
+      <p style="color: white; text-decoration: underline;">Les commentaires:</p>
+      🔔<ul id="comments-Holiness.jpg" style="color: white;"> </ul>
+    </div>
+
+    <!-- pub4 - cute.jpg -->
+    <div class="centre">
+      <div class="photos">
+        <img class="pdp" src="avel.jpg" alt="Photos de profil">
+        <form action="primg3.html">
+          <button class="main"></button>
+        </form>
+        <span class="nom"><a class="a2" href="primg3.html">Avel Mimilitia</a></span>
+        <k> photos. </k>
+
+      </div>
+
+      <div class="pub">
+        <img class="imp" src="aaaaa.jpg" alt="Photos de publication">
+      </div>
+      <div class="numberlike">
+        <m id="like-cute.jpg">0</m>
+        <j>❤️ Likes</j>
+      </div>
+      <div class="vupub">
+        <button class="like1" onclick="addLike('cute.jpg')">❤️</button>
+
+        <input class="input_coms" type="text" id="input-cute.jpg" placeholder="Ajouter un commentaire...">
+        <button class="coms" onclick="addComment('cute.jpg')">Send</button>
+      </div>
+      <p style="color: white; text-decoration: underline;">Les commentaires:</p>
+      🔔<ul id="comments-cute.jpg" style="color: white;"> </ul>
+
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC7fvrEaET7j15TtmOy-9sNHHqjEx738_w",
+      authDomain: "bdavel-ca1eb.firebaseapp.com",
+      projectId: "bdavel-ca1eb",
+      storageBucket: "bdavel-ca1eb.firebasestorage.app",
+      messagingSenderId: "6657641572",
+      appId: "1:6657641572:web:00b8bbdecee9db98f86371",
+      measurementId: "G-9FHVW90D82"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const images = ["pretty.jpg", "Holiness.jpg", "cute.jpg", "reel_1.mp4"];
+
+    images.forEach(async (id) => {
+      const ref = doc(db, "images", id);
+      const snap = await getDoc(ref);
+      if (!snap.exists()) {
+        await setDoc(ref, { likes: 0, comments: [] });
+      }
+      updateDisplay(id);
+    });
+
+    window.addLike = async function (imageId) {
+      const ref = doc(db, "images", imageId);
+      const snap = await getDoc(ref);
+      const current = snap.data().likes || 0;
+      await updateDoc(ref, { likes: current + 1 });
+      updateDisplay(imageId);
+    }
+
+    window.addComment = async function (imageId) {
+      const input = document.getElementById("input-" + imageId);
+      const comment = input.value.trim();
+      if (comment !== "") {
+        const ref = doc(db, "images", imageId);
+        await updateDoc(ref, { comments: arrayUnion(comment) });
+        input.value = "";
+        updateDisplay(imageId);
+      }
+    }
+
+    async function updateDisplay(imageId) {
+      const ref = doc(db, "images", imageId);
+      const snap = await getDoc(ref);
+      if (snap.exists()) {
+        document.getElementById("like-" + imageId).textContent = snap.data().likes;
+        const list = document.getElementById("comments-" + imageId);
+        list.innerHTML = "";
+        (snap.data().comments || []).forEach(c => {
+          const li = document.createElement("li");
+          li.textContent = c;
+          list.appendChild(li);
+        });
+      }
+    }
+  </script>
+  <script src="./ora.js"></script>
+</body>
+
+</html>
