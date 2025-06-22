@@ -1,46 +1,53 @@
 .tete {
     background-color: rgb(255, 255, 255);
-    z-index: 1000;
+    z-index: 999;
     position: fixed;
-    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 500px;
     border-bottom: solid gray;
 }
-body {
-    background-color: #004d98;
-    margin: 0;
-}
+
 .bt2 {
     width: 15%;
     border-color: transparent;
     margin-left: 12%;
     background-color: rgb(255, 255, 255);
-    
+
 }
+
 .bt3 {
     width: 15%;
     border-color: transparent;
     margin-left: 12%;
     background-image: -webkit-linear-gradient(white, rgb(255, 255, 255), white, rgb(0, 255, 47));
 }
+
 .pr {
     background-color: rgb(255, 255, 255);
     width: 15%;
     border-color: transparent;
     margin-left: 0%;
 }
+
 .jkj {
-      background-color: white;
+    background-color: white;
     width: 15%;
     border: none;
     margin-left: 12%;
-    }
-    ik {
+}
+
+ik {
     color: blue;
     font-size: 30px;
+
 }
+
 .img1 {
     width: 40px;
 }
+
 .vide {
     height: 95px;
     background-color: #1d007d;
