@@ -8,33 +8,74 @@
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="stylesheet" href="./pretty.css">
   <link rel="stylesheet" href="./head.css">
+  <link rel="stylesheet" href="./setting.css">
 
 </head>
 
-<body>
+<body id="monBody">
   <div class="protege">
     <div class="tete">
-    <b>
-      <ik>&nbsp;Pretty</ik>
-      <img class="deco" src="deco.jpg" style="height: 1px;">
-    </b><br>
-    <button class="pr" type="submit">
-      <img class="img1" src="profil.png"><br>
-      <b><a href="#">Profil</a></b>
-    </button>
-    <button class="jkj" type="submit">
-      <img class="img1" src="video.png"><br>
-      <b><a href="#">Video</a></b>
-    </button>
-    <button class="bt2" type="submit">
-      <img class="img1" src="mp.png"><br>
-      <b><a href="#">Message</a></b>
-    </button>
-    <button class="bt3" type="submit">
-      <img class="img1" src="accueil.png"><br>
-      <b><a href="#">Accueil</a></b>
-    </button>
-  </div>
+      <!-- Bouton pour ouvrir le tiroir -->
+    <button class="btn-open" onclick="openDrawer()" style="border-color: #333;">☰</button>
+      <b>
+        <ik>&nbsp;Pretty</ik>
+        <img class="deco" src="deco.jpg" style="height: 1px;">
+      </b><br>
+      <button class="pr" type="submit">
+        <img class="img1" src="profil.png"><br>
+        <b><a href="#">Profil</a></b>
+      </button>
+      <button class="jkj" type="submit">
+        <img class="img1" src="video.png"><br>
+        <b><a href="#">Video</a></b>
+      </button>
+      <button class="bt2" type="submit">
+        <img class="img1" src="mp.png"><br>
+        <b><a href="#">Message</a></b>
+      </button>
+      <button class="bt3" type="submit">
+        <img class="img1" src="accueil.png"><br>
+        <b><a href="#">Accueil</a></b>
+      </button>
+    </div>
+
+
+    
+    <!-- Le tiroir -->
+    <div class="drawer" id="drawer">
+        <!-- Bouton pour fermer le tiroir -->
+        <button class="btn-close" onclick="closeDrawer()">✕</button>
+        <h2 style="text-decoration: underline;">Theme Change</h2>
+        <button onclick="changedark()" id="btn_drk" style="width: 50px; 
+        height: 50px; color: white;
+         background-color: rgb(32, 32, 32); border: solid 2px rgb(255, 123, 0);
+         border-radius: 10px; margin-left: 20px; cursor: pointer;">Dark</button>
+        <button onclick="changelight()" id="btn_drk" style="width: 50px; 
+        height: 50px; color: rgb(0, 0, 0);
+         background-color: rgb(255, 255, 255); border: solid 2px rgb(255, 123, 0);
+         border-radius: 10px; margin-left: 5px; cursor: pointer;">Light</button>
+        <button onclick="changeblue()" id="btn_drk" style="width: 50px; 
+        height: 50px; color: white;
+         background-color: rgb(38, 0, 255); border: solid 2px rgb(255, 123, 0);
+         border-radius: 10px; margin-left: 5px; cursor: pointer;">Blue</button>
+        <button onclick="changeorange()" id="btn_drk" style="width: 50px; 
+        height: 50px; color: white;
+         background-color: rgb(255, 115, 0); border: solid 2px rgb(0, 68, 255);
+         border-radius: 10px; margin-left: 5px; cursor: pointer;">Yellow</button>
+
+        <button id="texte" style="width: 180px; 
+         background-color: rgb(32, 32, 32); color: white; margin-left: 45px;
+         margin-top: 10px; border: 0;">Dark</button>
+        <button style="width: 180px; 
+         background-color: rgb(255, 115, 0); color: rgb(0, 0, 0); margin-left: 10px;
+         margin-top: 10px; border-radius: 7px;" onclick="dictionnaire()">Utilisateurs</button>
+        <button onclick="openindwon()">Ateur</button>
+        <!-- Listes des objets -->
+        <ul id="liste"></ul>
+        
+    </div>
+
+
 
     <div class="vide"></div>
 
@@ -42,12 +83,12 @@
       <div class="photos">
         <img class="pdp" src="avel.jpg" alt="Photos de profil">
         <form action="video.html">
-          <button class="main"></button>
+          <button id="t1" class="main">...</button>
         </form>
-        <span class="nom"><a class="a2" href="video.html">Avel Mimilitia</a></span>
-        <k> réel. </k>
+        <span class="nom"><a id="t2" class="a2" href="video.html">Avel Mimilitia</a></span>
+        <k id="t3"> réel. </k>
         <m id="counter">0</m>
-        <j>minutes</j>
+        <j id="t4">minutes</j>
       </div>
 
       <div class="reel">
@@ -56,7 +97,7 @@
       </div>
       <div class="numberlike">
         <m id="like-reel_1.mp4">0</m>
-        <j>❤️ Likes</j>
+        <j id="t5">❤️ Likes</j>
       </div>
       <div class="vupub">
         <button class="like1" onclick="addLike('reel_1.mp4')">❤️</button>
@@ -65,7 +106,7 @@
         <input class="input_coms" type="text" id='input-reel_1.mp4' placeholder="Ajouter un commentaire...">
         <button class="coms" onclick="addComment('reel_1.mp4')">coms</button>
       </div>
-      <p style="color: white; text-decoration: underline;">Les commentaires:</p>
+      <p id="t6" style="color: white; text-decoration: underline;">Les commentaires:</p>
       🔔<ul id="comments-reel_1.mp4" style="color: white;"> </ul>
     </div>
 
@@ -74,7 +115,7 @@
       <div class="photos">
         <img class="pdp" src="pdp.jpg" alt="Photos de profil">
         <form action="primg1.html">
-          <button class="main"></button>
+          <button class="main">...</button>
         </form>
         <span class="nom"><a class="a2" href="primg1.html">Holiness Wish you</a></span>
         <k> photos. </k>
@@ -103,7 +144,7 @@
       <div class="photos">
         <img class="pdp" src="yves.jpg" alt="Photos de profil">
         <form action="primg2.html">
-          <button class="main"></button>
+          <button class="main">...</button>
         </form>
         <span class="nom"><a class="a2" href="primg2.html">Yves Savio Remananarivo Felton</a></span>
         <k> photos. </k>
@@ -131,7 +172,7 @@
       <div class="photos">
         <img class="pdp" src="avel.jpg" alt="Photos de profil">
         <form action="primg3.html">
-          <button class="main"></button>
+          <button class="main">...</button>
         </form>
         <span class="nom"><a class="a2" href="primg3.html">Avel Mimilitia</a></span>
         <k> photos. </k>
@@ -149,9 +190,10 @@
         <button class="like1" onclick="addLike('cute.jpg')">❤️</button>
 
         <input class="input_coms" type="text" id="input-cute.jpg" placeholder="Ajouter un commentaire...">
-        <button class="coms" onclick="addComment('cute.jpg')">Send</button>
+        <button class="coms" onclick="addComment('cute.jpg')">Coms</button>
       </div>
-      <p style="color: white; text-decoration: underline;">Les commentaires:</p>
+      <p onclick="chowcoms()" style="color: white; 
+      text-decoration: underline;">Les commentaires:</p>
       🔔<ul id="comments-cute.jpg" style="color: white;"> </ul>
 
     </div>
@@ -203,11 +245,11 @@
         updateDisplay(imageId);
       }
     }
-
     async function updateDisplay(imageId) {
       const ref = doc(db, "images", imageId);
       const snap = await getDoc(ref);
       if (snap.exists()) {
+
         document.getElementById("like-" + imageId).textContent = snap.data().likes;
         const list = document.getElementById("comments-" + imageId);
         list.innerHTML = "";
@@ -218,8 +260,10 @@
         });
       }
     }
+
   </script>
   <script src="./ora.js"></script>
+  <script src="./setting.js"></script>
 </body>
 
 </html>
