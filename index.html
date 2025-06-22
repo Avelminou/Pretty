@@ -16,7 +16,7 @@
   <div class="protege">
     <div class="tete">
       <!-- Bouton pour ouvrir le tiroir -->
-    <button class="btn-open" onclick="openDrawer()" style="border-color: #333;">☰</button>
+      <button class="btn-open" onclick="openDrawer()" style="border-color: #333;">☰</button>
       <b>
         <ik>&nbsp;Pretty</ik>
         <img class="deco" src="deco.jpg" style="height: 1px;">
@@ -40,39 +40,39 @@
     </div>
 
 
-    
+
     <!-- Le tiroir -->
     <div class="drawer" id="drawer">
-        <!-- Bouton pour fermer le tiroir -->
-        <button class="btn-close" onclick="closeDrawer()">✕</button>
-        <h2 style="text-decoration: underline;">Theme Change</h2>
-        <button onclick="changedark()" id="btn_drk" style="width: 50px; 
+      <!-- Bouton pour fermer le tiroir -->
+      <button class="btn-close" onclick="closeDrawer()">✕</button>
+      <h2 style="text-decoration: underline;">Theme Change</h2>
+      <button onclick="changedark()" id="btn_drk" style="width: 50px; 
         height: 50px; color: white;
          background-color: rgb(32, 32, 32); border: solid 2px rgb(255, 123, 0);
          border-radius: 10px; margin-left: 20px; cursor: pointer;">Dark</button>
-        <button onclick="changelight()" id="btn_drk" style="width: 50px; 
+      <button onclick="changelight()" id="btn_drk" style="width: 50px; 
         height: 50px; color: rgb(0, 0, 0);
          background-color: rgb(255, 255, 255); border: solid 2px rgb(255, 123, 0);
          border-radius: 10px; margin-left: 5px; cursor: pointer;">Light</button>
-        <button onclick="changeblue()" id="btn_drk" style="width: 50px; 
+      <button onclick="changeblue()" id="btn_drk" style="width: 50px; 
         height: 50px; color: white;
          background-color: rgb(38, 0, 255); border: solid 2px rgb(255, 123, 0);
          border-radius: 10px; margin-left: 5px; cursor: pointer;">Blue</button>
-        <button onclick="changeorange()" id="btn_drk" style="width: 50px; 
+      <button onclick="changeorange()" id="btn_drk" style="width: 50px; 
         height: 50px; color: white;
          background-color: rgb(255, 115, 0); border: solid 2px rgb(0, 68, 255);
          border-radius: 10px; margin-left: 5px; cursor: pointer;">Yellow</button>
 
-        <button id="texte" style="width: 180px; 
+      <button id="texte" style="width: 180px; 
          background-color: rgb(32, 32, 32); color: white; margin-left: 45px;
          margin-top: 10px; border: 0;">Dark</button>
-        <button style="width: 180px; 
+      <button style="width: 180px; 
          background-color: rgb(255, 115, 0); color: rgb(0, 0, 0); margin-left: 10px;
          margin-top: 10px; border-radius: 7px;" onclick="dictionnaire()">Utilisateurs</button>
-        <button onclick="openindwon()">Ateur</button>
-        <!-- Listes des objets -->
-        <ul id="liste"></ul>
-        
+      <button onclick="openindwon()">Ateur</button>
+      <!-- Listes des objets -->
+      <ul id="liste"></ul>
+
     </div>
 
 
@@ -87,7 +87,7 @@
         </form>
         <span class="nom"><a id="t2" class="a2" href="video.html">Avel Mimilitia</a></span>
         <k id="t3"> réel. </k>
-        <m id="temps">Chargement...</m>
+        <j id="temps_un">Chargement...</j>
       </div>
 
       <div class="reel">
@@ -197,11 +197,6 @@
 
     </div>
   </div>
-  <div class="footer" style="margin: auto; background-color: transparent;">
-    <center>
-      <h4 style="color: white;"> 2025 from Avel</h4>
-    </center>
-  </div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -239,12 +234,28 @@
       updateDisplay(imageId);
     }
 
+    function timeAgo(date) {
+      const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+      if (seconds < 60) return `${seconds} sec`;
+      const minutes = Math.floor(seconds / 60);
+      if (minutes < 60) return `${minutes} min`;
+      const hours = Math.floor(minutes / 60);
+      if (hours < 24) return `${hours} h`;
+      const days = Math.floor(hours / 24);
+      return `${days} j`;
+    }
+
     window.addComment = async function (imageId) {
       const input = document.getElementById("input-" + imageId);
       const comment = input.value.trim();
       if (comment !== "") {
         const ref = doc(db, "images", imageId);
-        await updateDoc(ref, { comments: arrayUnion(comment) });
+        await updateDoc(ref, {
+          comments: arrayUnion({
+            text: comment,
+            timestamp: Date.now()
+          })
+        });
         input.value = "";
         updateDisplay(imageId);
       }
@@ -259,11 +270,19 @@
         list.innerHTML = "";
         (snap.data().comments || []).forEach(c => {
           const li = document.createElement("li");
-          li.textContent = c;
+          const date = new Date(c.timestamp);
+          const elapsed = timeAgo(date);
+          li.innerHTML = `
+  <div>${c.text}<input type="checkbox"><span style="color: gray; 
+    font-size: 12px;">.vue</span></div>
+  <small style="color: gray; font-size: 12px;">${elapsed}</small>
+`;
+
           list.appendChild(li);
         });
       }
     }
+
 
   </script>
   <script src="./date.js"></script>
