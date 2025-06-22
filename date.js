@@ -16,5 +16,5 @@ function tempsEcouleDepuis(dateString) {
 
     // Exemple : date de création d'une publication
     const datePublication = '2025-06-22T16:00:00';
-    const element = document.getElementById("temps");
+    const element = document.getElementById("temps_un");
     element.textContent = tempsEcouleDepuis(datePublication);
