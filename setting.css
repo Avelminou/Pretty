@@ -1,0 +1,61 @@
+body {
+    background-color: rgb(32,32,32);
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: -400px;
+    /* Tiroir hors de l'écran */
+    width: 300px;
+    height: 100%;
+    background-color: #333;
+    transition: left 1s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+
+
+}
+
+.drawer.open {
+    left: 0;
+    /* Tiroir visible */
+    background-color: #a8a8a8;
+    width: 300px;
+    height: 100%;
+    z-index: 1001;
+}
+
+/* Boutons */
+.btn-open {
+    top: 2px;
+    margin-left: 10px;
+    font-size: 20px;
+    background-color: #008cba;
+    color: white;
+    border: solid 2px white;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.btn-close {
+    background-color: #ff7300;
+    color: white;
+    border: solid 2px gainsboro;
+    border-radius: 5px;
+    align-self: flex-end;
+    font-size: 20px;
+    float: right;
+
+}
+
+.btn-close:hover {
+    opacity: 0.9;
+    background-color: brown;
+}
+
+.btn-open:hover {
+    opacity: 0.9;
+    background-color: rgb(0, 61, 31);
+}
