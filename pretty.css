@@ -1,16 +1,17 @@
 /* Tous tes styles originaux sont conservés ici */
 body {
-    background-color: #ffffff;
+    background-color: #202020;
     max-width: 500px;
     height: auto;
     margin: auto;
+    color: black;
 }
 
 .haut {
     height: 80px;
-    width: 100%;
+    max-width: 500px;
     background-image: url('holi.png');
-    background-size: 410px 80px;
+    background-size: 500px 80px;
     border-bottom: solid 1px white;
     z-index: 1;
 }
@@ -19,7 +20,7 @@ body {
     height: auto;
     width: 100%;
     border-bottom: solid 1px white;
-    background-color: #1d007d;
+    background-color: #1d007d00;
 }
 
 .pdp {
@@ -51,16 +52,16 @@ body {
 }
 
 .main {
-    font-size: 50px;
+    font-size: 35px;
     height: 30px;
     width: 30px;
     display: flex;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
     float: right;
     margin: 5px;
-    background-image: url("point.png");
-    background-size: 30px 30px;
+    background-color: transparent;
     color: white;
 }
 
@@ -85,7 +86,7 @@ button {
 
 .vupub {
     width: 100%;
-    background-color: #1d007d;
+    background-color: #1d007d00;
     display: flex;
 }
 
@@ -93,14 +94,14 @@ button {
     height: 30px;
     width: 30px;
     margin: 3px;
-    background-color: #1d007d;
+    background-color: #1d007d00;
     font-size: 30px;
 
 }
 .input_coms{
     width: 70%;
     margin-left: 20px;
-    background-color: #1d007d;
+    background-color: #1d007d00;
     border: solid 2px white;
     border-radius: 10px;
 }
@@ -210,7 +211,7 @@ button {
 .reel {
     height: 400px;
     width: 100%;
-    background-color: #000000;
+    background-color: #00000071;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,7 +220,7 @@ button {
 .video {
     height: 370px;
     width: 330px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     border-radius: 20px;
     background-image: url("fond.jpg");
     background-size: 330px 400px;
