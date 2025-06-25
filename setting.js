@@ -44,7 +44,7 @@ function changeorange() {
 
 
 // Dictionnaire uo listes
-const fruits = ["Utilisateur_1", "Utilisateur_2", "Utilisateur_3", "Utilisateur_4"]
+const fruits = ["Utulisateur_1", "Utulisateur_2", "Utulisateur_3", "Utulisateur_4"]
 const liste = document.getElementById("liste")
 
 // Listes des dictionnaires
